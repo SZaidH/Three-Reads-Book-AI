@@ -1,0 +1,115 @@
+/* Importing Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-fcolor: #2a2e45;
+  --secondary-fcolor: #377771;
+  --primary-font: "Alata";
+  --secondary-font: "Montserrat";
+  --default-font: sans-serif;
+}
+
+body {
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-repeat: no-repeat;
+  color: var(--primary-fcolor);
+  height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header img {
+  margin: 40px 0px;
+  width: 300px;
+  height: 101px;
+}
+
+/* Text Section */
+.text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.text-section h1 {
+  font-family: var(--primary-font);
+  font-size: 2rem;
+}
+
+.text-section h1 span {
+  background: #ed6a5e;
+  background: linear-gradient(to bottom, #ed6a5e 51%, #377771 73%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-section h2 {
+  font-family: var(--secondary-font);
+  font-size: 1.5rem;
+  color: var(--secondary-fcolor);
+  margin: 50px 0px 30px 0px;
+}
+
+/* Book Form */
+.book-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.book-form {
+  background-color: white;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 15px;
+  width: 40%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-form input[type="text"] {
+  width: 90%;
+  padding: 15px;
+  margin: 20px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+}
+
+.book-form input[type="text"]:focus {
+  border: 2px solid var(--secondary-fcolor);
+}
+
+.book-form button {
+  font-family: var(--primary-font);
+  font-size: 1.1rem;
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: var(--secondary-fcolor);
+  border: none;
+  border-radius: 5px;
+}
+
+.book-form .btn-disable:hover {
+  background-color: var(--secondary-fcolor);
+}
+
+.book-form button:hover {
+  cursor: default;
+  background-color: #ed6a5e;
+}
