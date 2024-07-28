@@ -1,6 +1,7 @@
 import { useState } from "react";
+import BookProcessing from "./BookProcessing";
 
-function BookForm() {
+const BookForm = () => {
   // State for the favorite books
   const [books, setBooks] = useState({ book1: "", book2: "", book3: "" });
   const [formData, setFormData] = useState(null);
@@ -52,8 +53,12 @@ function BookForm() {
           Find Books
         </button>
       </form>
+      {formData && (
+        // Passing the book form data as a prop to the child component
+        <BookProcessing data={formData} />
+      )}
     </main>
   );
-}
+};
 
 export default BookForm;
