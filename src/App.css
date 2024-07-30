@@ -15,11 +15,15 @@
   --default-font: sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: linear-gradient(to top, #dfe9f3 0%, white 100%);
   background-repeat: no-repeat;
   color: var(--primary-fcolor);
-  height: 100vh;
+  height: 100%;
 }
 
 /* Header */
@@ -112,4 +116,51 @@ header img {
 .book-form button:hover {
   cursor: default;
   background-color: #ed6a5e;
+}
+
+/* Book Recs */
+
+.book-recs h1 {
+  text-align: center;
+  font-family: var(--primary-font);
+  font-size: 2rem;
+  margin: 150px 0px 20px 0px;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-details {
+  background-color: white;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  margin: 25px;
+  display: flex;
+  width: 80%;
+}
+
+.book-thumbnail {
+  background-color: #2a2e45;
+}
+
+.book-info {
+  font-family: var(--secondary-font);
+  padding: 15px;
+}
+
+.book-info h2 {
+  font-size: 1.2rem;
+}
+
+.book-info h3 {
+  margin: 5px 0px;
+  font-size: 1rem;
+  opacity: 60%;
+}
+
+.book-info p {
+  margin-top: 10px;
 }

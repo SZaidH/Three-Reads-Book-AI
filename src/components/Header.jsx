@@ -1,5 +1,6 @@
 // Importing the Logo
 import logoText from "../assets/threeReadsLogoText.png";
+
 const Header = () => {
   return (
     <header>
