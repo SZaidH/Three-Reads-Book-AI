@@ -33,9 +33,8 @@ header {
 }
 
 header img {
-  margin: 40px 0px;
   width: 300px;
-  height: 101px;
+  height: 212px;
 }
 
 /* Text Section */
@@ -43,7 +42,7 @@ header img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .text-section h1 {
@@ -186,9 +185,8 @@ header img {
 /* Media queries */
 @media (min-width: 360px) and (max-width: 1080px) {
   header img {
-    margin: 30px 0px;
     width: 200px;
-    height: 67px;
+    height: 142px;
   }
 
   .text-section h1 {
