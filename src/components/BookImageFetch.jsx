@@ -4,6 +4,7 @@ import BookRecs from "./BookRecs";
 
 const BookImageFetch = () => {
   const bookNameTrim = useStore((state) => state.bookDetails);
+  const setLoading = useStore((state) => state.setLoading);
   const [bookThumbnails, setBookThumbnails] = useState([]); // State to store the books fetched from Google Books API
   const bookRecsRef = useRef(null); // Ref for BookRecs component
 
@@ -13,7 +14,7 @@ const BookImageFetch = () => {
       book.book.replace(/ /g, "-").toLowerCase()
     );
 
-    // Fucntion to fetch the book thumbnails from Google Books API
+    // Function to fetch the book thumbnails from Google Books API
     const fetchThumbnails = async () => {
       try {
         const promises = trimName.map((bookName) =>
@@ -29,8 +30,10 @@ const BookImageFetch = () => {
 
         const thumbnails = await Promise.all(promises);
         setBookThumbnails(thumbnails.filter(Boolean)); // Filter out any null values
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     };
     fetchThumbnails();

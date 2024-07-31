@@ -6,6 +6,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai"; // Importing Google 
 const BookProcessing = ({ data }) => {
   const API_KEY = import.meta.env.VITE_API_KEY; // The API key will be defined in the .env file
   const [apiResp, setApiResp] = useState([]); // State for storing the Gemini API response
+  const [apiErr, setApiErr] = useState("");
 
   const setBookDetails = useStore((state) => state.setBookDetails); // Zustand action to update the store
 
@@ -36,11 +37,16 @@ const BookProcessing = ({ data }) => {
         setApiResp(jsonResp);
       } catch (error) {
         console.error("Error generating content:", error);
+        setApiErr(error);
       }
     }
 
     fetchRecommendations();
   }, [API_KEY, data, setBookDetails]);
+
+  return apiErr.length ? (
+    <p>Sorry, the books could not be fetched. Please try again later.</p>
+  ) : null;
 };
 
 export default BookProcessing;

@@ -118,6 +118,23 @@ header img {
   background-color: #ed6a5e;
 }
 
+/* Loading animation. Credit: https://css-loaders.com/ */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, var(--secondary-fcolor) 94%, #0000)
+      top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, var(--secondary-fcolor));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 /* Book Recs */
 
 .book-recs h1 {
@@ -144,6 +161,7 @@ header img {
 
 .book-thumbnail {
   background-color: #2a2e45;
+  width: 128px;
 }
 
 .book-info {
@@ -163,4 +181,47 @@ header img {
 
 .book-info p {
   margin-top: 10px;
+}
+
+/* Media queries */
+@media (min-width: 360px) and (max-width: 1080px) {
+  header img {
+    margin: 30px 0px;
+    width: 200px;
+    height: 67px;
+  }
+
+  .text-section h1 {
+    font-size: 1.7rem;
+  }
+
+  .text-section span {
+    display: block;
+    text-align: center;
+  }
+
+  .text-section h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .book-form {
+    width: 90%;
+  }
+
+  .book-recs h1 {
+    font-size: 1.7rem;
+  }
+
+  .book-details {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .book-thumbnail {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
 }

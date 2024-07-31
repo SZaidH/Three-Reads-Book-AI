@@ -1,10 +1,14 @@
 import { useState } from "react";
 import BookProcessing from "./BookProcessing";
+import useStore from "../store";
 
 const BookForm = () => {
-  // State for the favorite books
-  const [books, setBooks] = useState({ book1: "", book2: "", book3: "" });
+  const [books, setBooks] = useState({ book1: "", book2: "", book3: "" }); // State for the favorite books
   const [formData, setFormData] = useState(null);
+
+  // useStore for loading animation
+  const isLoading = useStore((state) => state.isLoading);
+  const setLoading = useStore((state) => state.setLoading);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,6 +18,7 @@ const BookForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormData(books);
+    setLoading(true);
     setBooks({ book1: "", book2: "", book3: "" });
   };
 
@@ -46,12 +51,18 @@ const BookForm = () => {
         />
         <button
           type="submit"
-          disabled={!isInputFilled}
+          disabled={!isInputFilled || isLoading}
           // Apply style if input fields are empty
           className={!isInputFilled ? "btn-disable" : ""}
+          style={{ display: isLoading ? "none" : "block" }}
         >
           Find Books
         </button>
+        {/* CSS Animation Loader */}
+        <div
+          className="loader"
+          style={{ display: isLoading ? "block" : "none" }}
+        ></div>
       </form>
       {formData && (
         // Passing the book form data as a prop to the child component
