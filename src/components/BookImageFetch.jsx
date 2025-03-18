@@ -22,7 +22,8 @@ const BookImageFetch = () => {
             .then((response) => response.json())
             .then((data) => {
               if (data.items && data.items.length > 0) {
-                return data.items[0].volumeInfo.imageLinks.smallThumbnail;
+                const imageLinks = data.items[0].volumeInfo.imageLinks;
+                return imageLinks ? imageLinks.smallThumbnail : null;
               }
               return null;
             })

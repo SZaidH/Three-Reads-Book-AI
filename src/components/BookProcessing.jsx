@@ -18,10 +18,10 @@ const BookProcessing = ({ data }) => {
       try {
         // model can be changed to whatever Gemini API model you are using. generationConfig is used to ensure that the response contains json format
         const model = genAI.getGenerativeModel({
-          model: "gemini-1.5-flash",
+          model: "gemini-2.0-flash",
           generationConfig: { responseMimeType: "application/json" },
         });
-        const prompt = `Given books ${data.book1}, ${data.book2}, and ${data.book3}, provide three book recommendations excluding these three. Return a JSON array with three book recommendations in this format: [{ "book": "book name", "author": "author of the book", "description": "One or two sentence describing the book and one sentence explaining why it was chosen based on the user's preferences."}]`;
+        const prompt = `Given books ${data.book1}, ${data.book2}, and ${data.book3}, provide three book recommendations excluding these three. Return a JSON array with three book recommendations in this format: [{ "book": "book name", "author": "author of the book", "description": "One or two sentence describing the book and 2-3 sentences explaining why it was chosen based on the user's preferences."}]`;
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = await response.text();

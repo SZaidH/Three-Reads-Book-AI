@@ -15,15 +15,11 @@
   --default-font: sans-serif;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   background: linear-gradient(to top, #dfe9f3 0%, white 100%);
   background-repeat: no-repeat;
   color: var(--primary-fcolor);
-  height: 100%;
+  min-height: 100vh;
 }
 
 /* Header */
